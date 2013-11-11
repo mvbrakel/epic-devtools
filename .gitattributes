@@ -1,13 +1,18 @@
 # Set all text files to LF upon adding to git
 *	text=auto
 
-# Diff modes
+## Diff modes
+
+#PHP
 *.php diff=php
 *.inc diff=php
-*.module diff=php
-*.install diff=php
 *.phpt diff=php
 
+#Drupal files
+*.module diff=php
+*.install diff=php
+
+#Frontend
 *.html diff=html
 *.xml diff=html
 *.phtml diff=html
