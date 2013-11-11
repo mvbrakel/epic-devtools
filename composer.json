@@ -3,7 +3,7 @@
     "description": "Development tools for Enrise team epic.",
     "require": {
         "phing/phing": ">=2.6",
-        "cac/autophing": ">=1.0",
+        "cac/autophing": ">=1.0"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "1.*",
