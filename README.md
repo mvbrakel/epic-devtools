@@ -10,13 +10,15 @@ To use the dev tools, include them in your composer.json
         "enrise/epic-devtools": "1.*",
     }
 
-## Includes
+## Features
+
+### EPIC created
 
 -  Git PSR-2 pre-commit hook
   - Check compliance
   - Fix basics
 
-## External repos included
+### Externals
 
 - [CrazyAwesomeCompany/autophing](https://github.com/CrazyAwesomeCompany/autophing)
 - [squizlabs/php_codesniffer](https://github.com/squizlabs/php_codesniffer)
