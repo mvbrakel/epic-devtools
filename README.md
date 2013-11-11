@@ -4,7 +4,7 @@ This repository holds tools used in development by team epic.
 
 ## Usage
 
-To use the dev tools, include them in your composer.json
+The "epic-devtools" are published to packagist. To use the tools, include them in your composer.json.
 
     "require": {
         "enrise/epic-devtools": "1.*",
