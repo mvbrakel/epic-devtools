@@ -1,0 +1,13 @@
+{
+    "name": "enrise/epic-devtools",
+    "description": "Development tools for Enrise team epic.",
+    "require": {
+        "phing/phing": ">=2.6",
+        "cac/autophing": ">=1.0",
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "1.*",
+        "fabpot/php-cs-fixer": "0.4.*@dev",
+        "phpunit/phpunit": "3.7.*"
+    }
+}
