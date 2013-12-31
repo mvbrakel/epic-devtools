@@ -1,7 +1,14 @@
 #!/usr/bin/env php
 <?php
-$basePath = realpath(dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR);
-require_once $basePath . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
+
+// Use composers autoload.php if available
+if (file_exists(dirname(__FILE__) . '/../../../../autoload.php')) {
+    $basePath = realpath(dirname(__FILE__) . '/../../../../../');
+    require_once dirname(__FILE__) . '/../../../../autoload.php';
+} else if (file_exists(dirname(__FILE__) . '/../../../../../../autoload.php')) {
+    $basePath = realpath(dirname(__FILE__) . '/../../../../../../../');
+    require_once dirname(__FILE__) . '/../../../../../../autoload.php';
+}
 
 use EpicDevTools\Console\Application;
 
