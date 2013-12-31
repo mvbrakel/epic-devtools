@@ -1,10 +1,12 @@
 {
     "name": "enrise/epic-devtools",
-    "keywords": ["development", "git", "phing", "editorconfig"],
+    "keywords": ["development", "git", "editorconfig"],
     "description": "Development tools for Enrise team epic.",
     "homepage": "http://www.enrise.com",
     "type": "library",
     "license": "MIT",
+    "version": "1.0",
+
     "authors": [
         {
             "name": "Marcel van Brakel",
@@ -12,9 +14,15 @@
         }
     ],
 
+    "bin": [
+        "tools/bin/edt"
+    ],
+
+    "autoload": {
+        "psr-0": { "EpicDevTools\\": "src/" }
+    },
+
     "require": {
-        "phing/phing": ">=2.6",
-        "cac/autophing": ">=1.0"
     },
 
     "require-dev": {

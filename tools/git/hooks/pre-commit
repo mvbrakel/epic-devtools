@@ -1,0 +1,62 @@
+#!/usr/bin/env php
+<?php
+DEFINE('DS', DIRECTORY_SEPARATOR);
+DEFINE('BASEPATH', realpath(dirname(__FILE__). '/../../') . DS); // Basepath (this file is in ".git/hooks")
+
+/*** Get changed files ***/
+
+exec('git diff --cached --name-status --diff-filter=ACM', $output);
+$files = array();
+foreach ($output as $file) {
+    $files[] = BASEPATH . trim(substr($file, 1));
+}
+
+/*** Fix errors that are waste of time otherwise ***/
+
+foreach ($files as $file) {
+    //Execute fix
+    exec(
+        sprintf(
+            '%s fix %s %s',
+            BASEPATH . 'vendor' . DS . 'bin' . DS . 'php-cs-fixer',
+            implode(
+                ' ',
+                array(
+                    '--fixers=phpdoc_params,eof_ending,linefeed,trailing_spaces'
+                )
+            ),
+            $file
+        ),
+        $fixput
+    );
+    //But output it anyways so ppl can learn
+    echo implode("\n", $fixput);
+}
+
+/*** Detect possible PSR-2 errors ***/
+
+exec(
+    sprintf(
+        '%s %s %s',
+        BASEPATH . 'vendor' . DS . 'bin' . DS . 'phpcs',
+        implode(
+            ' ',
+            array(
+                '-n', //No warnings, these are no reason to fail
+                '--standard=PSR2', //We are checking PSR-2
+                '--report-width=80', //Prevent CLI flooding
+            )
+        ),
+        implode(' ', $files)
+    ),
+    $output
+);
+
+/*** Output errors or just continue the commit ***/
+
+if (!empty($output)) {
+    echo implode("\n", $output);
+    exit(1);
+}
+
+exit(0);

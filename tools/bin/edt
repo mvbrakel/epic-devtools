@@ -1,0 +1,9 @@
+#!/usr/bin/env php
+<?php
+$basePath = realpath(dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR);
+require_once $basePath . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
+
+use EpicDevTools\Console\Application;
+
+$application = new Application($basePath);
+$application->run();

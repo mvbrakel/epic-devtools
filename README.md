@@ -2,7 +2,7 @@
 
 This repository holds tools used in development by team epic.
 
-## Usage
+## Install
 
 The "epic-devtools" are published to packagist. To use the tools, include them in your composer.json.
 
@@ -10,16 +10,26 @@ The "epic-devtools" are published to packagist. To use the tools, include them i
         "enrise/epic-devtools": "1.*",
     }
 
+
 ## Features
 
 ### EPIC created
 
--  Git PSR-2 pre-commit hook
-  - Check compliance
-  - Fix basics
+-  **[dev]** Git PSR-2 pre-commit hook
+    - Check compliance
+    - Fix basics
 
 ### Externals
 
-- [CrazyAwesomeCompany/autophing](https://github.com/CrazyAwesomeCompany/autophing)
 - [squizlabs/php_codesniffer](https://github.com/squizlabs/php_codesniffer)
 - [fabpot/php-cs-fixer](https://github.com/fabpot/php-cs-fixer)
+
+
+## Usage
+
+Depending on which tools you are going to use, install/update composer with or without the ``` --dev ``` directive.
+The features explain if you should or should not use ``` --dev ```.
+
+### Installing specific tools
+
+    $ vendor/bin/edt githooks::install [-f (force override of existing hooks)]
